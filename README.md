@@ -1,0 +1,2 @@
+# Opencv-project-training
+According to the project made by learning murtaza Hassan's videos every day, thank the up Master of station B: a graduate student who knows a little about everything. It is mainly used to learn opencv by myself. On my CSDN blog, I have a detailed picture and text introduction of each project. I will continue to study hard. Welcome to my CSDN blog, where I store my code and some information. CSDN link: https://blog.csdn.net/m0_62919535?type=blog 。 You can check it in my column - opencv project practice.
