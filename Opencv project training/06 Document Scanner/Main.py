@@ -8,8 +8,8 @@ webCamFeed = 0                                                      #
 pathImage = "1.jpg"                                                    #
 cap = cv2.VideoCapture(1)                                              #
 cap.set(10,160)                                                        #
-heightImg = 480                                                        #
-widthImg  = 360                                                        #
+heightImg = 640                                                        #
+widthImg  = 480                                                        #
 ########################################################################
 
 utlis.initializeTrackbars()
