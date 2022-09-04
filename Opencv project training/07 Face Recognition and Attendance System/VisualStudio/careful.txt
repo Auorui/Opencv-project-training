@@ -1,0 +1,44 @@
+我下载dlib包和face_recognition包是为了完成我的《Opencv项目实战: 07 人脸识别和考勤系统》，那么这一篇将作为一个前篇，完成项目包的搭建。
+
+1、在下载之前，我们需要下载cmake：
+pip install cmake
+pip命令下载即可，最后得到 
+
+Requirement already satisfied: cmake in d:\python\lib\site-packages (3.24.1)
+如果在这之后直接pip命令下载dlib和face_recognition，运行了一大堆的东西后会告诉你下载失败，由于我已经弄好了，且也没有截图，大家就凑合凑合吧！
+
+2、下载visual studio 20xx
+哪一个版本都可以，我建议呢，不要下载2022版本的，因为我们知道新版本可能存在着bug，你就是它的新用户来收集bug信息的，但我没找到之前的版本的，下载完成之后我才知道是2022的版本，我就是个小冤种，当然，当你看到本篇时说不定安装2022版本的就很合适了。
+
+地址链接在此：Visual Studio: 面向软件开发人员和 Teams 的 IDE 和代码编辑器 (microsoft.com)
+
+
+
+ 当然，我们选择免费的社区版就可以了。
+
+3、点击下载
+
+
+4、在你的D盘/E盘建立文件夹
+
+
+文件夹2022下： 
+
+
+
+ 5、勾选使用C++的桌面开发，仅此一个即可
+
+
+ 6、更改文件的路径
+它是默认下载在C盘里面的，我下载之后查看了一下，它大约有6.45G，我后面是将它改在了E盘里面的。
+
+
+
+ 更改好路径后，直接点击下载。
+
+7、完成以上操作后pip命令下载
+pip install dlib
+pip install face_recognition
+————————————————
+版权声明：本文为CSDN博主「夏天是冰红茶」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/m0_62919535/article/details/126685560
