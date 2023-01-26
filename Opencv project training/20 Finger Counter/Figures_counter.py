@@ -60,7 +60,7 @@ while 1:
 
 
     #################打印帧率#####################
-    fps, img = fpsReader.FPS(img,pos=(880,50))
+    fps, img = fpsReader.FPS(img,pos=(750,50))
     cv2.imshow("image",img)
     k=cv2.waitKey(1)
     if k==27:
