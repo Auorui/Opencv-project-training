@@ -7,8 +7,8 @@ from cvzone.ClassificationModule import Classifier
 
 cap=cv2.VideoCapture(0)
 detector=HandDetector(maxHands=1)
-classifier=Classifier(".21 Americal_ASL/Model/keras_model.h5",
-                      ".21 Americal_ASL/Model/labels.txt")
+classifier=Classifier("E:\pythonProject1\Opencv project training//21 Americal_ASL\Model\keras_model.h5",
+                      "E:\pythonProject1\Opencv project training//21 Americal_ASL\Model\labels.txt")
 
 offset=20
 imgSize=300
