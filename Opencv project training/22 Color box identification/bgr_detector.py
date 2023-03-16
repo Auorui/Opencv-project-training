@@ -8,14 +8,13 @@ class BGR():
         self.scale=scale
         self.imgResult=img.copy()
         self.myColors = [[5, 107, 0, 19, 255, 255],
-                        [133, 56, 0, 159, 156, 255],
                         [57, 76, 0, 100, 255, 255],
-                        [90, 48, 0, 118, 255, 255]]
+                        [95, 78, 202, 128, 255, 255]]
         self.myColorValues = [[51, 153, 255],  ## BGR
-                              [255, 0, 255],   # https://www.rapidtables.org/zh-CN/web/color/RGB_Color.html
-                              [0, 255, 0],
+                              [0, 255, 0],    # https://www.rapidtables.org/zh-CN/web/color/RGB_Color.html
                               [255, 0, 0]]
-        self.objectColor=["Orange","Purple","Green","Blue"]
+        self.objectColor=["Orange","Green","Blue"]
+
     def stackImages(self,scale,imgArray):
         rows = len(imgArray)
         cols = len(imgArray[0])
@@ -53,7 +52,7 @@ class BGR():
         for cnt in contours:
             area = cv2.contourArea(cnt)
             if area > minArea:
-                cv2.drawContours(self.imgResult, cnt, -1, (255, 0, 0), 3)
+                cv2.drawContours(self.imgResult, cnt, -1, (255, 255, 255), 3)
                 peri = cv2.arcLength(cnt, True)
                 approx = cv2.approxPolyDP(cnt, 0.02 * peri, True)
                 x, y, w, h = cv2.boundingRect(approx)
@@ -70,7 +69,7 @@ class BGR():
             x,y,w,h=self.getContours(mask)
             cv2.putText(self.imgResult, self.objectColor[count],
                         (x + (w // 2) - 10, y + (h // 2) - 10), cv2.FONT_HERSHEY_COMPLEX, 0.7,
-                        (0, 0, 0), 2)
+                        (0, 0, 255), 2)
             count += 1
         return self.imgResult
 
