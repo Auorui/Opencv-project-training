@@ -1,0 +1,32 @@
+# Opencv入门教程
+* author:Auorui
+* description:IPCS 10班培训计划
+
+## 章节目录及简单介绍
+### chapter1:
+    如何读取图像和视频并调用摄像头
+### chapter2:
+    Opencv的五个基本功能
+### chapter3:
+    如何裁剪和调整图像大小
+### chapter4:
+    如何绘制形状和文本
+### chapter5:
+    透视变换修正
+### chapter6:
+    堆叠多个图像显示
+### chapter7:
+    颜色检测和对象提取
+### chapter8:
+    轮廓和形状检测
+### chapter9:
+    人脸识别与车牌检测
+
+
+
+
+
+
+
+
+
