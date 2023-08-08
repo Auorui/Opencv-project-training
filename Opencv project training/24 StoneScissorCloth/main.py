@@ -26,7 +26,7 @@ while True:
 
         if stateResult is False:
             timer = time.time() - initialTime
-            cv2.putText(imgbackground, str(int(timer)), (605, 435), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 255), 4)
+            cv2.putText(imgbackground, str(int(timer)), (605, 435), cv2.FONT_HERSHEY_PLAIN, 6, pz.purple, 4)
 
             if timer > 3:
                 stateResult = True
