@@ -1,13 +1,29 @@
-import pyzjr as pz
 import cv2
-from cvzone.HandTrackingModule import HandDetector
+from HandModule import HandDetector
 import time
 import random
 import cvzone
+import os
 
-Vap=pz.VideoCap()
-Vap.CapInit()
-imgList,all = pz.getPhotopath(r"Resources",debug=False)
+cap = cv2.VideoCapture(0)
+cap.set(3, 640)
+cap.set(4, 480)
+cap.set(10, 70)
+
+def getPhotoPath(path):
+    imgfile = []
+    allfile = []
+    file_list = os.listdir(path)
+    for i in file_list:
+        newph = os.path.join(path, i).replace("\\", "/")
+        allfile.append(newph)
+        _, file_ext = os.path.splitext(newph)
+        if file_ext[1:] in ['png', 'jpg']:
+            imgfile.append(newph)
+
+    return imgfile, allfile
+
+imgList, all = getPhotoPath(r"Resources")
 detector = HandDetector(maxHands=1,detectionCon=0.8)
 timer = 0
 stateResult = False
@@ -16,17 +32,17 @@ scores = [0, 0]  # [AI, Player]
 imgAI = None
 initialTime = 0
 while True:
-    img = Vap.read(flip=1)
+    reg, img = cap.read()
+    img = cv2.flip(img, 1)
     imgbackground = cv2.imread(imgList[0])
-
     imgScaled = cv2.resize(img, (0, 0), None, 0.875, 0.875)[:, 80:480]
-    hands = detector.findHands(imgScaled,draw=False)
+    hands = detector.findHands(imgScaled, draw=False)
 
     if startGame:
 
         if stateResult is False:
             timer = time.time() - initialTime
-            cv2.putText(imgbackground, str(int(timer)), (605, 435), cv2.FONT_HERSHEY_PLAIN, 6, pz.purple, 4)
+            cv2.putText(imgbackground, str(int(timer)), (605, 435), cv2.FONT_HERSHEY_PLAIN, 6, (255, 0, 255), 4)
 
             if timer > 3:
                 stateResult = True
@@ -34,7 +50,8 @@ while True:
 
                 if hands:
                     playerMove = None
-                    hand = hands[0]
+                    hand = hands[0][0]
+                    # print(hand)
                     fingers = detector.fingersUp(hand)
                     if fingers == [0, 0, 0, 0, 0]:
                         playerMove = 1
@@ -67,8 +84,8 @@ while True:
     if stateResult:
         imgbackground = cvzone.overlayPNG(imgbackground, imgAI, (149, 310))
 
-    cv2.putText(imgbackground, str(scores[0]), (410, 215), cv2.FONT_HERSHEY_PLAIN, 4, pz.white, 6)
-    cv2.putText(imgbackground, str(scores[1]), (1112, 215), cv2.FONT_HERSHEY_PLAIN, 4, pz.white, 6)
+    cv2.putText(imgbackground, str(scores[0]), (410, 215), cv2.FONT_HERSHEY_PLAIN, 4, (255,255,255), 6)
+    cv2.putText(imgbackground, str(scores[1]), (1112, 215), cv2.FONT_HERSHEY_PLAIN, 4, (255,255,255), 6)
 
     cv2.imshow("background", imgbackground)
 
