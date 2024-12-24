@@ -16,7 +16,7 @@ for folder in myFolders:
         curImg = cv2.resize(curImg,(0,0),None,0.2,0.2)   #比例减小
         images.append(curImg)
 
-    stitcher = cv2.Stitcher.create()
+    stitcher = cv2.createStitcher()
     (status,result) = stitcher.stitch(images)
     if (status == cv2.STITCHER_OK):
         print('Panorama Generated')
